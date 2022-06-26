@@ -83,7 +83,7 @@ correct_sub_script_str_gpu = r'''#!/bin/bash
 #SBATCH --gres=gpu:1
 #SBATCH --job-name=job_name
 #SBATCH --partition=maxwell
-#SBATCH --mem-per-gpu=32G
+#SBATCH --mem=32G
 #SBATCH --time=24:00:00
 #SBATCH --account=xxx
 
@@ -195,6 +195,7 @@ def test_ClusterJob_config_by_res_dict_gpu():
         env_settings = env_settings_str,
         res_keywords = res_keywords_dict_gpu
     )
+    print(job.sub_script_str)
     assert re.match(correct_sub_script_str_gpu, job.sub_script_str) != None
 
 def test_ClusterJob_config_also_submit_info():
