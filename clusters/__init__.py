@@ -13,6 +13,6 @@ for f in os.listdir(os.path.dirname(__file__)):
     if f != '__init__.py' and f.endswith('.py') and not f.startswith('_'):
         module_name = f.removesuffix('.py')
         __all__.append(module_name)
-        import_module('.'+module_name, package='core.clusters')
+        import_module('.'+module_name, package='clusters')
 del f # pylint: disable=undefined-loop-variable
 
