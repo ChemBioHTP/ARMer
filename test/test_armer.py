@@ -149,7 +149,7 @@ trap 'rm -rf $TMPDIR/$SLURM_JOB_ID' EXIT'''
 
 cluster = clusters.accre.Accre()
 
-test_sub_dir = './test/core/test_file/'
+test_sub_dir = './test/test_file/'
 test_file_paths = [f'{test_sub_dir}QM_test.out'] # paths to be cleaned
 
 def test_ClusterJob_config_by_env_list():
@@ -195,7 +195,6 @@ def test_ClusterJob_config_by_res_dict_gpu():
         env_settings = env_settings_str,
         res_keywords = res_keywords_dict_gpu
     )
-    print(job.sub_script_str)
     assert re.match(correct_sub_script_str_gpu, job.sub_script_str) != None
 
 def test_ClusterJob_config_also_submit_info():
